@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import Header from './Header';
 import DashBoard from './DashBoard';
 import CreateExpense from './CreateExpense';
+import EditExpense from './EditExpense';
 import Help from './Help';
 import NoMatch from './NoMatch';
 import store from '../store/store';
@@ -17,8 +18,8 @@ const App = () => (
                 <Header />
                 <Switch>
                     <Route exact path="/" component={DashBoard} />
-                    <Route path="/dashboard/:id" component={DashBoard} />
                     <Route path="/createExpense" component={CreateExpense} />
+                    <Route path="/editExpense/:id" component={EditExpense} />
                     <Route path="/help" component={Help} />
                     <Route component={NoMatch} />
                 </Switch>

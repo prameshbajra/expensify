@@ -1,16 +1,14 @@
 {
+    "extends": "airbnb",
     "env": {
         "browser": true,
-        "node": true,
-        "es6": true
+        "node": true
     },
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
-    },
+    "parser": "babel-eslint",
     "rules": {
         "indent": [2, 4],
         "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": "off",
         "react/jsx-filename-extension": [1, {
             "extensions": [".js", ".jsx"]
         }]
