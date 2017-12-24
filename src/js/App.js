@@ -9,7 +9,6 @@ import Help from './Help';
 import NoMatch from './NoMatch';
 import store from '../store/store';
 import { addExpense } from '../actions/expenses';
-import { setTextFilter } from '../actions/filters';
 
 const storeInstance = store();
 
@@ -25,10 +24,6 @@ storeInstance.dispatch(addExpense({
     note: 'CTO',
     createdAt: 102123,
 }));
-storeInstance.dispatch(setTextFilter('Pramesh'));
-setTimeout(() => {
-    storeInstance.dispatch(setTextFilter('Suzal'));
-}, 2000);
 
 const App = () => (
     <Provider store={storeInstance}>
