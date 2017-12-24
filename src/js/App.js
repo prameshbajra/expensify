@@ -9,14 +9,26 @@ import Help from './Help';
 import NoMatch from './NoMatch';
 import store from '../store/store';
 import { addExpense } from '../actions/expenses';
+import { setTextFilter } from '../actions/filters';
 
 const storeInstance = store();
 
-storeInstance.subscribe(() => {
-    console.log(storeInstance.getState());
-});
-
-storeInstance.dispatch(addExpense({ description: 'Suzal Bajracharya' }));
+storeInstance.dispatch(addExpense({
+    description: 'Suzal is getting good at this.',
+    amount: 90000,
+    note: 'Team Lead',
+    createdAt: 234521,
+}));
+storeInstance.dispatch(addExpense({
+    description: 'Pramesh is getting good at many things.',
+    amount: 190000,
+    note: 'CTO',
+    createdAt: 102123,
+}));
+storeInstance.dispatch(setTextFilter('Pramesh'));
+setTimeout(() => {
+    storeInstance.dispatch(setTextFilter('Suzal'));
+}, 2000);
 
 const App = () => (
     <Provider store={storeInstance}>
