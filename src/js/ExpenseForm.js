@@ -4,7 +4,6 @@ import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
 export default class ExpenseForm extends Component {
-    /* eslint-disable*/
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +15,6 @@ export default class ExpenseForm extends Component {
             errorState: '',
         };
     }
-    /* eslint-enable */
     onDescriptionChange = (e) => {
         const description = e.target.value;
         this.setState(() => ({ description }));
@@ -47,7 +45,6 @@ export default class ExpenseForm extends Component {
             this.setState(() => ({
                 errorState: '',
             }));
-            // eslint-disable-next-line
             this.props.onSubmit({
                 description: this.state.description,
                 note: this.state.note,

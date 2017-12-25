@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-// eslint-disable-next-line
-const ExpenseListItem = ({ dispatch, expenses }) => (
+const ExpenseListItem = ({ expenses }) => (
     <div>
         {expenses.map(({
             description, id, amount, note, createdAt,

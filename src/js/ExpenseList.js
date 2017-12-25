@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import getVisibleExpenses from '../apis/getVisibleExpenses';
 
-// eslint-disable-next-line
 export const ExpenseList = ({ expenses }) => (
     <div >
         {
