@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render header  1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Header
+</h1>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          exact={true}
+          to="/"
+>
+          DashBoard
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          exact={true}
+          to="/createExpense"
+>
+          Create Expense
+</NavLink>,
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          exact={true}
+          to="/help"
+>
+          Help
+</NavLink>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Header",
+        },
+        "ref": null,
+        "rendered": "Header",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "DashBoard",
+          "exact": true,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": "DashBoard",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Create Expense",
+          "exact": true,
+          "to": "/createExpense",
+        },
+        "ref": null,
+        "rendered": "Create Expense",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
+          "children": "Help",
+          "exact": true,
+          "to": "/help",
+        },
+        "ref": null,
+        "rendered": "Help",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Header
+</h1>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            exact={true}
+            to="/"
+>
+            DashBoard
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            exact={true}
+            to="/createExpense"
+>
+            Create Expense
+</NavLink>,
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            exact={true}
+            to="/help"
+>
+            Help
+</NavLink>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Header",
+          },
+          "ref": null,
+          "rendered": "Header",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "DashBoard",
+            "exact": true,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "DashBoard",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Create Expense",
+            "exact": true,
+            "to": "/createExpense",
+          },
+          "ref": null,
+          "rendered": "Create Expense",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Help",
+            "exact": true,
+            "to": "/help",
+          },
+          "ref": null,
+          "rendered": "Help",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
