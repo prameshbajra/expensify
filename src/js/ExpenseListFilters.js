@@ -30,3 +30,4 @@ const ExpenseListFilters = props => (
 );
 
 export default connect(state => ({ filters: state.filters }))(ExpenseListFilters);
+

@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+import 'react-dates/lib/css/_datepicker.css';
+
 import Header from './Header';
 import DashBoard from './DashBoard';
 import CreateExpense from './CreateExpense';
