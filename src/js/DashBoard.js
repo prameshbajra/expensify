@@ -3,6 +3,7 @@ import ExpenseList from './ExpenseList';
 
 import ExpenseListFilters from './ExpenseListFilters';
 
+/* eslint-disable */
 const DashBoard = props => (
     <div>
         <h1>DashBoard</h1>
@@ -11,5 +12,6 @@ const DashBoard = props => (
         <ExpenseList />
     </div>
 );
+/* eslint-enable */
 
 export default DashBoard;
