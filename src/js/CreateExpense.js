@@ -4,14 +4,9 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
 
-// eslint-disable-next-line
 export class CreateExpense extends Component {
     onSubmit = (expense) => {
-        // yo duita onSubmit chuttai ho ...
-        // mathi ko form ko submit vayo ...
-        // tala ko chai connect bata pass gareko props bata aako wala vayo ...
-        //  testing garrna sajilo hoss vanera gareko yesto ...
-        this.props.onSubmit(expense);
+        this.props.onSubmitFromProps(expense);
         this.props.history.push('/');
     }
     render() {
@@ -25,7 +20,7 @@ export class CreateExpense extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    onSubmit: expense => dispatch(addExpense(expense)),
+    onSubmitFromProps: expense => dispatch(addExpense(expense)),
 });
 
 export default connect(undefined, mapDispatchToProps)(CreateExpense);
