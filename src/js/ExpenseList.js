@@ -5,10 +5,17 @@ import ExpenseListItem from './ExpenseListItem';
 import getVisibleExpenses from '../apis/getVisibleExpenses';
 
 // eslint-disable-next-line
-const ExpenseList = ({ expenses }) => (
+export const ExpenseList = ({ expenses }) => (
     <div >
-        <ExpenseListItem expenses={expenses} />
-    </div>
+        {
+            expenses.length === 0 ? (
+                <p>No expenses</p>
+            ) : (
+                <ExpenseListItem expenses={expenses} />
+            )
+        }
+    </div >
+
 );
 
 const mapStateToProps = (state => ({

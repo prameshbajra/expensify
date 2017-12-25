@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render - no expense list 1`] = `
+<div>
+  <p>
+    No expenses
+  </p>
+</div>
+`;
+
+exports[`should render expense list 1`] = `
+<div>
+  <ExpenseListItem
+    expenses={
+      Array [
+        Object {
+          "amount": 200,
+          "createdAt": 0,
+          "description": "desc 1",
+          "id": "one1",
+          "note": "Some note 1",
+        },
+        Object {
+          "amount": 1200,
+          "createdAt": 5,
+          "description": "Some 2",
+          "id": "two2",
+          "note": "Some note 2",
+        },
+        Object {
+          "amount": 3200,
+          "createdAt": 55,
+          "description": "Some desc 3",
+          "id": "three3",
+          "note": "Some note 3",
+        },
+      ]
+    }
+  />
+</div>
+`;

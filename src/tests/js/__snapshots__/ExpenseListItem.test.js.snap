@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <div
+    key="one1"
+  >
+    <h3>
+      <NavLink
+        activeClassName="active"
+        ariaCurrent="true"
+        to="/editExpense/one1"
+      >
+         
+        desc 1
+      </NavLink>
+    </h3>
+    <p>
+      Some note 1
+    </p>
+    <p>
+      200
+    </p>
+    <small>
+      0
+    </small>
+  </div>
+  <div
+    key="two2"
+  >
+    <h3>
+      <NavLink
+        activeClassName="active"
+        ariaCurrent="true"
+        to="/editExpense/two2"
+      >
+         
+        Some 2
+      </NavLink>
+    </h3>
+    <p>
+      Some note 2
+    </p>
+    <p>
+      1200
+    </p>
+    <small>
+      5
+    </small>
+  </div>
+  <div
+    key="three3"
+  >
+    <h3>
+      <NavLink
+        activeClassName="active"
+        ariaCurrent="true"
+        to="/editExpense/three3"
+      >
+         
+        Some desc 3
+      </NavLink>
+    </h3>
+    <p>
+      Some note 3
+    </p>
+    <p>
+      3200
+    </p>
+    <small>
+      55
+    </small>
+  </div>
+</div>
+`;
