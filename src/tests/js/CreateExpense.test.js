@@ -28,14 +28,14 @@ let onSubmitSpy, history, wrapper;
 beforeEach(() => {
     onSubmitSpy = jest.fn();
     history = { push: jest.fn() }
-    wrapper = shallow(<CreateExpense history={history} onSubmitFromProps={onSubmitSpy} />);
+    wrapper = shallow(<CreateExpense history={history} addExpense={onSubmitSpy} />);
 });
 
 test("should render add expense page correctly", () => {
     expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
-test("should render add expense page correctly", () => {
+test("should render add expense page correctly and should test calling of methods", () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
     expect(history.push).toHaveBeenLastCalledWith('/');
     expect(onSubmitSpy).toHaveBeenLastCalledWith(expenses[1]);
