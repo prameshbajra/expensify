@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseListFilters properly 1`] = `
+<div>
+  <h1>
+    Filter
+  </h1>
+  <input
+    onChange={[Function]}
+    type="text"
+  />
+  <select
+    onChange={[Function]}
+    value="date"
+  >
+    <option
+      value="date"
+    >
+      Date
+    </option>
+    <option
+      value="amount"
+    >
+      Amount
+    </option>
+  </select>
+</div>
+`;
+
+exports[`should render ExpenseListFilters properly in presence of a alt filter 1`] = `
+<div>
+  <h1>
+    Filter
+  </h1>
+  <input
+    onChange={[Function]}
+    type="text"
+  />
+  <select
+    onChange={[Function]}
+    value="amount"
+  >
+    <option
+      value="date"
+    >
+      Date
+    </option>
+    <option
+      value="amount"
+    >
+      Amount
+    </option>
+  </select>
+</div>
+`;

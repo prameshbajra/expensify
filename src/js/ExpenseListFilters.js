@@ -1,31 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setTextFilter, sortByAmount, sortByDate } from '../actions/filters';
 
-const ExpenseListFilters = props => (
-    <div>
-        <h1>Filter</h1>
-        <input
-            type="text"
-            onChange={(e) => {
-                props.dispatch(setTextFilter(e.target.value));
-            }}
-        />
-        <select
-            value={props.filters.sortBy}
-            onChange={(e) => {
-                if (e.target.value === 'date') {
-                    props.dispatch(sortByDate());
-                } else if (e.target.value === 'amount') {
-                    props.dispatch(sortByAmount());
-                }
-            }}
-        >
-            <option value="date">Date</option>
-            <option value="amount">Amount</option>
-        </select>
-    </div>
-);
+export class ExpenseListFilters extends Component {
+    onChangeSelect = (e) => {
+        if (e.target.value === 'date') {
+            this.props.sortByDate();
+        } else if (e.target.value === 'amount') {
+            this.props.sortByAmount();
+        }
+    }
+    onChangeInput = (e) => {
+        this.props.setTextFilter(e.target.value);
+    }
+    render() {
+        return (
+            <div>
+                <h1>Filter</h1>
+                <input
+                    type="text"
+                    onChange={this.onChangeInput}
+                />
+                <select
+                    value={this.props.filters.sortBy}
+                    onChange={this.onChangeSelect}
+                >
+                    <option value="date">Date</option>
+                    <option value="amount">Amount</option>
+                </select>
+            </div>
+        );
+    }
+}
 
-export default connect(state => ({ filters: state.filters }))(ExpenseListFilters);
+const mapDispatchToProps = dispatch => ({
+    sortByDate: () => { dispatch(sortByDate()); },
+    sortByAmount: () => { dispatch(sortByAmount()); },
+    setTextFilter: (text) => { dispatch(setTextFilter(text)); },
+});
+const mapStateToProps = state => ({ filters: state.filters });
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);
 
