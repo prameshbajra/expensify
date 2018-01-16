@@ -22,7 +22,7 @@ exports[` 1`] = `
       200
     </p>
     <small>
-      0
+      January 1st, 1970
     </small>
   </div>
   <div
@@ -45,7 +45,7 @@ exports[` 1`] = `
       1200
     </p>
     <small>
-      5
+      January 1st, 1970
     </small>
   </div>
   <div
@@ -68,7 +68,7 @@ exports[` 1`] = `
       3200
     </p>
     <small>
-      55
+      January 1st, 1970
     </small>
   </div>
 </div>

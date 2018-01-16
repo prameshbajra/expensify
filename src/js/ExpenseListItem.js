@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 
 const ExpenseListItem = ({ expenses }) => (
     <div>
@@ -10,7 +11,7 @@ const ExpenseListItem = ({ expenses }) => (
                 <h3><NavLink to={`/editExpense/${id}`}> {description}</NavLink></h3>
                 <p>{note}</p>
                 <p>{amount}</p>
-                <small>{createdAt}</small>
+                <small>{moment(createdAt).format('MMMM Do, YYYY')}</small>
             </div>
         ))}
     </div>

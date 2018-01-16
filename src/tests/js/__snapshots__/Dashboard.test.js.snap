@@ -7,5 +7,6 @@ exports[`should reander Dashboard page 1`] = `
   </h1>
   <Connect(ExpenseListFilters) />
   <Connect(Component) />
+  <Connect(Component) />
 </div>
 `;
