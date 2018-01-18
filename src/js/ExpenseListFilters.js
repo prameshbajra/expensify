@@ -16,7 +16,7 @@ export class ExpenseListFilters extends Component {
     render() {
         return (
             <div>
-                <h1>Filter</h1>
+                <h3>Filter</h3>
                 <input
                     type="text"
                     onChange={this.onChangeInput}

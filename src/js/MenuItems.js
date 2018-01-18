@@ -4,16 +4,19 @@ import { Menu } from 'semantic-ui-react';
 
 const MenuItems = () => (
     <div>
-        <Menu.Item name="home">
+        <Menu.Item >
             <NavLink exact activeClassName="active" to="/">DashBoard</NavLink>
         </Menu.Item>
-        <Menu.Item name="gamepad">
+        <Menu.Item >
             <NavLink exact activeClassName="active" to="/createExpense">Create Expense</NavLink>
         </Menu.Item>
-        <Menu.Item name="camera">
+        <Menu.Item >
             <NavLink exact activeClassName="active" to="/help">Help</NavLink>
         </Menu.Item>
-    </div>
+        <Menu.Item >
+            <NavLink exact activeClassName="active" to="/">About</NavLink>
+        </Menu.Item>
+    </div >
 );
 
 export default MenuItems;
