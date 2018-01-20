@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Input } from 'semantic-ui-react';
+
 import { setTextFilter, sortByAmount, sortByDate } from '../actions/filters';
 
 export class ExpenseListFilters extends Component {
@@ -15,19 +17,25 @@ export class ExpenseListFilters extends Component {
     }
     render() {
         return (
-            <div>
-                <h3>Filter</h3>
-                <input
-                    type="text"
-                    onChange={this.onChangeInput}
-                />
-                <select
-                    value={this.props.filters.sortBy}
-                    onChange={this.onChangeSelect}
-                >
-                    <option value="date">Date</option>
-                    <option value="amount">Amount</option>
-                </select>
+            <div className="row">
+                <div className="col-md-8">
+                    <Input
+                        fluid
+                        placeholder="Find what you are looking for ... "
+                        icon="search"
+                        onChange={this.onChangeInput}
+                    />
+                </div>
+                <div className="col-md-4">
+                    <select
+                        className="ui fluid dropdown"
+                        value={this.props.filters.sortBy}
+                        onChange={this.onChangeSelect}
+                    >
+                        <option value="date">Date</option>
+                        <option value="amount">Amount</option>
+                    </select>
+                </div>
             </div>
         );
     }

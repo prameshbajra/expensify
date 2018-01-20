@@ -25,7 +25,12 @@ const Body = props => (
         </Sidebar>
         <Sidebar.Pusher>
             <Segment basic>
-                <div id="body">
+                <div
+                    id="body"
+                    role="presentation"
+                    onClick={() => { props.sideBarHandler(); }}
+                    onKeyPress={() => { props.sideBarHandler(); }}
+                >
                     <Switch>
                         <Route exact path="/" component={DashBoard} />
                         <Route path="/createExpense" component={CreateExpense} />

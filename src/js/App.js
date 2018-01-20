@@ -17,7 +17,7 @@ class App extends Component {
         };
     }
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
-
+    toggleSidebar = () => this.setState({ visible: false });
     render() {
         const { visible } = this.state;
         return (
@@ -36,7 +36,7 @@ class App extends Component {
                                 icon="settings"
                                 onClick={this.toggleVisibility}
                             />
-                            <Body visible={visible} />
+                            <Body visible={visible} sideBarHandler={this.toggleSidebar} />
                         </div>
                     </div>
                 </BrowserRouter>

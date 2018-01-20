@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Header } from 'semantic-ui-react';
 
 import ExpenseListItem from './ExpenseListItem';
 import getVisibleExpenses from '../apis/getVisibleExpenses';
 
 export const ExpenseList = ({ expenses }) => (
-    <div >
+    <div className="row">
+        <hr />
         {
             expenses.length === 0 ? (
-                <p>No expenses</p>
+                <Header as="h2" color="grey" textAlign="center">No expenses</Header>
             ) : (
                 <ExpenseListItem expenses={expenses} />
             )
