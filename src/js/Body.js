@@ -6,6 +6,7 @@ import DashBoard from './DashBoard';
 import CreateExpense from './CreateExpense';
 import EditExpense from './EditExpense';
 import Help from './Help';
+import About from './About';
 import MenuItems from './MenuItems';
 import NoMatch from './NoMatch';
 
@@ -36,6 +37,7 @@ const Body = props => (
                         <Route path="/createExpense" component={CreateExpense} />
                         <Route path="/editExpense/:id" component={EditExpense} />
                         <Route path="/help" component={Help} />
+                        <Route path="/about" component={About} />
                         <Route component={NoMatch} />
                     </Switch>
                 </div>

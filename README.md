@@ -2,9 +2,8 @@
 
 <hr/>
 <h6>Uses React + Semantic UI + Bootstrap + Redux + Firebase</h6>
-<hr/>
 
-### Run this by :
+# Run this by :
 
 - `npm install` install required dependancies.
 
@@ -14,12 +13,13 @@
 
 <br />
 
-### App Currently in DEVELOPMENT MODE
+# App Currently in DEVELOPMENT MODE
 
 <br />
 
-> No test written
+- No complete test coverage
 
-> No modular code
+![About Image](./about.png)
 
-> No redux integration - Redux is up and working though. Not yet integrated with the app.
+
+

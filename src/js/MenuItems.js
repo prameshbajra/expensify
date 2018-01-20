@@ -14,7 +14,7 @@ const MenuItems = () => (
             <NavLink exact activeClassName="active" to="/help">Help</NavLink>
         </Menu.Item>
         <Menu.Item >
-            <NavLink exact activeClassName="active" to="/">About</NavLink>
+            <NavLink exact activeClassName="active" to="/about">About</NavLink>
         </Menu.Item>
     </div >
 );
