@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Header } from 'semantic-ui-react';
 
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
@@ -12,7 +13,7 @@ export class CreateExpense extends Component {
     render() {
         return (
             <div>
-                <h1>Create Expense</h1>
+                <Header textAlign="center" color="grey">Create Expense</Header>
                 <ExpenseForm onSubmit={this.onSubmit} />
             </div >
         );

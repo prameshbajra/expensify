@@ -3,3 +3,7 @@
     margin: 1rem;
     min-height: 18rem;
 }
+
+#form-create-expense {
+    min-height: 25rem;
+}

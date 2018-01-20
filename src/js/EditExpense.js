@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'semantic-ui-react';
 
 import { removeExpense, editExpense } from '../actions/expenses';
 import ExpenseForm from './ExpenseForm';
@@ -16,13 +17,20 @@ export class EditExpense extends Component {
     render() {
         return (
             <div>
+                <div className="col-md-6 col-md-offset-3">
+                    <Button
+                        fluid
+                        negative
+                        onClick={this.onClick}
+                    >
+                        Remove
+                    </Button>
+                    <br /><br />
+                </div>
                 <ExpenseForm
                     expense={this.props.expense}
                     onSubmit={this.onSubmit}
                 />
-                <button onClick={this.onClick}>
-                    Remove
-                </button>
             </div>
         );
     }
