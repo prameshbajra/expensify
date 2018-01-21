@@ -1,18 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+import { Card } from 'semantic-ui-react';
 
 const ExpenseListItem = ({ expenses }) => (
-    <div>
-        {expenses.map(expense => (
-            <div key={expense[0]}>
-                <h3><NavLink to={`/editExpense/${expense[0]}`}> {expense[1]}</NavLink></h3>
-                <p>{expense[2]}</p>
-                <p>{expense[4]}</p>
-                <small>{moment(expense[3]).format('MMMM Do, YYYY')}</small>
-            </div>
-        ))}
+    <div className="col-md-10 col-md-offset-1">
+        <Card.Group>
+            {expenses.map(expense => (
+                <Card key={expense[0]}>
+                    <Card.Content>
+                        <Card.Header> <NavLink to={`/editExpense/${expense[0]}`}> {expense[1]}</NavLink></Card.Header>
+                        <Card.Meta>Rs. {expense[4]}</Card.Meta>
+                        <Card.Description>{expense[2]}</Card.Description>
+                        <Card.Meta>{moment(expense[3]).format('MMMM Do, YYYY')}</Card.Meta>
+                    </Card.Content>
+                </Card>
+            ))}
+        </Card.Group>
     </div>
 );
-
 export default ExpenseListItem;
