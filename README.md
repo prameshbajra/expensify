@@ -1,7 +1,7 @@
 # Expensify app 
 
-<hr/>
 <h6>Uses React + Semantic UI + Bootstrap + Redux + Firebase</h6>
+<hr/>
 
 # Run this by :
 
