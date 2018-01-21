@@ -64,7 +64,10 @@ export default class ExpenseForm extends Component {
     render() {
         return (
             <div>
-                {this.state.errorState && <p>{this.state.errorState}</p>}
+                {this.state.errorState &&
+                    <div className=" col-md-6 col-md-offset-3 alert alert-danger text-center">
+                        <b>{this.state.errorState}</b>
+                    </div>}
                 <div className="row" id="form-create-expense">
                     <div className="col-md-6 col-md-offset-3">
                         <Input
