@@ -1,23 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header } from 'semantic-ui-react';
 
+import { database } from '../firebase/firebase';
 import ExpenseListItem from './ExpenseListItem';
 import getVisibleExpenses from '../apis/getVisibleExpenses';
 
-export const ExpenseList = ({ expenses }) => (
-    <div className="row">
-        <hr />
-        {
-            expenses.length === 0 ? (
-                <Header as="h2" color="grey" textAlign="center">No expenses</Header>
-            ) : (
-                <ExpenseListItem expenses={expenses} />
-            )
-        }
-    </div >
-
-);
+export class ExpenseList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            expenses: props.expenses,
+        };
+    }
+    componentWillMount() {
+        database.ref('expenses')
+            .on('value', (snapshot) => {
+                const dataReceived = snapshot.val();
+                const expensesArrayFromFirebase =
+                    Object.keys(dataReceived)
+                        .map(a => [
+                            a,
+                            dataReceived[a].description,
+                            dataReceived[a].note,
+                            dataReceived[a].createdAt,
+                            dataReceived[a].amount]);
+                this.setState(() => ({
+                    expenses: expensesArrayFromFirebase,
+                }));
+            });
+    }
+    render() {
+        return (
+            <div className="row">
+                <hr />
+                {
+                    this.state.expenses.length === 0 ? (
+                        <Header as="h2" color="grey" textAlign="center">No expenses</Header>
+                    ) : (
+                        <ExpenseListItem expenses={this.state.expenses} />
+                    )
+                }
+            </div >
+        );
+    }
+}
 
 const mapStateToProps = (state => ({
     expenses: getVisibleExpenses(state.expenses, state.filters),

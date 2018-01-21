@@ -12,3 +12,6 @@
     Never change actions ...
 
 // eslint-disable-next-line
+
+
+☐ Things like searching and sorting from date and time broke when integrating the app with firebase database ...
