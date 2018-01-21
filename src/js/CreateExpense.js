@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header } from 'semantic-ui-react';
 
+import { database } from '../firebase/firebase';
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
 
 export class CreateExpense extends Component {
     onSubmit = (expense) => {
-        this.props.addExpense(expense);
-        this.props.history.push('/');
+        database.ref('expenses')
+            .push(expense)
+            .then(() => {
+                this.props.addExpense(expense);
+                this.props.history.push('/');
+            });
     }
     render() {
         return (

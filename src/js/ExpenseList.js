@@ -17,22 +17,27 @@ export class ExpenseList extends Component {
         database.ref('expenses')
             .on('value', (snapshot) => {
                 const dataReceived = snapshot.val();
-                const expensesArrayFromFirebase =
-                    Object.keys(dataReceived)
-                        .map(a => [
-                            a,
-                            dataReceived[a].description,
-                            dataReceived[a].note,
-                            dataReceived[a].createdAt,
-                            dataReceived[a].amount]);
-                this.setState(() => ({
-                    expenses: expensesArrayFromFirebase,
-                }));
+                if (dataReceived) {
+                    const expensesArrayFromFirebase =
+                        Object.keys(dataReceived)
+                            .map(a => [
+                                a,
+                                dataReceived[a].description,
+                                dataReceived[a].note,
+                                dataReceived[a].createdAt,
+                                dataReceived[a].amount]);
+                    this.setState(() => ({ expenses: expensesArrayFromFirebase }));
+                } else {
+                    this.setState(() => ({ expenses: [] }));
+                }
             });
+    }
+    componentWillUnmount() {
+        database.ref('expenses').off();
     }
     render() {
         return (
-            <div className="row">
+            <div className="row" >
                 <hr />
                 {
                     this.state.expenses.length === 0 ? (
