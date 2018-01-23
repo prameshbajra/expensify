@@ -10,7 +10,7 @@ const ExpenseListItem = ({ expenses }) => (
                 <Card key={expense[0]}>
                     <Card.Content>
                         <Card.Header> <NavLink to={`/editExpense/${expense[0]}`}> {expense[1]}</NavLink></Card.Header>
-                        <Card.Meta>Rs. {expense[4]}</Card.Meta>
+                        <Card.Meta>Rs. <b>{expense[4]}</b></Card.Meta>
                         <Card.Description>{expense[2]}</Card.Description>
                         <Card.Meta>{moment(expense[3]).format('MMMM Do, YYYY')}</Card.Meta>
                     </Card.Content>
