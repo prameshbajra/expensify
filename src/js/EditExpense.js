@@ -2,13 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
+import { database } from '../firebase/firebase';
 import { removeExpense, editExpense } from '../actions/expenses';
 import ExpenseForm from './ExpenseForm';
 
 export class EditExpense extends Component {
     onSubmit = (expense) => {
-        this.props.editExpense(this.props.expense.id, expense);
-        this.props.history.push('/');
+        // Updating the data ...
+        database.ref('expenses')
+            .child(expense.id)
+            .update({
+                description: expense.description,
+                note: expense.note,
+                amount: expense.amount,
+                createdAt: expense.createdAt,
+            })
+            .then(() => {
+                this.props.history.push('/');
+            });
     }
     onClick = () => {
         this.props.removeExpense(this.props.expense.id);

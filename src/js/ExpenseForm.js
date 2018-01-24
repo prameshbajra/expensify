@@ -19,6 +19,7 @@ export default class ExpenseForm extends Component {
         };
     }
     componentWillMount() {
+        // To show precious saved values in form ...
         if (this.props.id) {
             database.ref('expenses')
                 .child(this.props.id)
@@ -65,6 +66,7 @@ export default class ExpenseForm extends Component {
                 errorState: '',
             }));
             this.props.onSubmit({
+                id: this.props.id || '',
                 description: this.state.description,
                 note: this.state.note,
                 amount: this.state.amount,
