@@ -1,5 +1,3 @@
-import uuid from 'uuid';
-
 // action generators ...
 export const addExpense = ({
     description = '',
@@ -9,7 +7,6 @@ export const addExpense = ({
 } = {}) => ({
     type: 'ADD_EXPENSE',
     expenses: {
-        id: uuid(),
         description,
         note,
         amount,

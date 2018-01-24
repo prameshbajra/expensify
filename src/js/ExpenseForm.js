@@ -4,6 +4,8 @@ import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 import { Input, Button, Header } from 'semantic-ui-react';
 
+import { database } from '../firebase/firebase';
+
 export default class ExpenseForm extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +17,22 @@ export default class ExpenseForm extends Component {
             calendarFocused: false,
             errorState: '',
         };
+    }
+    componentWillMount() {
+        if (this.props.id) {
+            database.ref('expenses')
+                .child(this.props.id)
+                .once('value')
+                .then((snapshot) => {
+                    const recValue = snapshot.val();
+                    this.setState(() => ({
+                        description: recValue.description,
+                        amount: recValue.amount,
+                        date: recValue.date,
+                        note: recValue.note,
+                    }));
+                });
+        }
     }
     onDescriptionChange = (e) => {
         const description = e.target.value;

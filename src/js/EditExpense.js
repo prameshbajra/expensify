@@ -28,6 +28,7 @@ export class EditExpense extends Component {
                     <br /><br />
                 </div>
                 <ExpenseForm
+                    id={this.props.match.params.id}
                     expense={this.props.expense}
                     onSubmit={this.onSubmit}
                 />
