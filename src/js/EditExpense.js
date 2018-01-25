@@ -22,8 +22,11 @@ export class EditExpense extends Component {
             });
     }
     onClick = () => {
-        this.props.removeExpense(this.props.expense.id);
-        this.props.history.push('/');
+        database.ref('expenses')
+            .child(this.props.match.params.id)
+            .remove(() => {
+                this.props.history.push('/');
+            });
     }
     render() {
         return (
