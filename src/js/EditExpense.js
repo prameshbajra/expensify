@@ -22,6 +22,7 @@ export class EditExpense extends Component {
             });
     }
     onClick = () => {
+        // Removing the item from firebase ...
         database.ref('expenses')
             .child(this.props.match.params.id)
             .remove(() => {
