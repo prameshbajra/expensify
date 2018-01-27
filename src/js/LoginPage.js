@@ -4,11 +4,7 @@ import { Button } from 'semantic-ui-react';
 import firebase, { googleProvider } from '../firebase/firebase';
 
 const signInHandler = () => {
-    firebase.auth().signInWithPopup(googleProvider).then((result) => {
-        console.log(result);
-    }).catch((error) => {
-        console.log(error);
-    });
+    firebase.auth().signInWithPopup(googleProvider);
 };
 
 const signInButton = (props) => {

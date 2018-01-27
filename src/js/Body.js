@@ -14,13 +14,7 @@ import NoMatch from './NoMatch';
 import firebase from '../firebase/firebase';
 
 const logOutHandler = () => {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        console.log('Signed out');
-    }).catch((error) => {
-        console.log(error);
-        // An error happened.
-    });
+    firebase.auth().signOut();
 };
 
 const buttonSignOut = () => {
