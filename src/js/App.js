@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Button, Divider } from 'semantic-ui-react';
+import createHistory from 'history/createBrowserHistory';
 import 'react-dates/lib/css/_datepicker.css';
 
 import Body from './Body';
 import store from '../store/store';
 
 const storeInstance = store();
+export const history = createHistory();
 
 class App extends Component {
     constructor(props) {
@@ -22,7 +24,7 @@ class App extends Component {
         const { visible } = this.state;
         return (
             <Provider store={storeInstance}>
-                <BrowserRouter>
+                <Router history={history}>
                     <div className="row">
                         <div className="col-md-8 col-md-offset-2">
                             <Divider horizontal>
@@ -39,7 +41,7 @@ class App extends Component {
                             <Body visible={visible} sideBarHandler={this.toggleSidebar} />
                         </div>
                     </div>
-                </BrowserRouter>
+                </Router>
             </Provider>
         );
     }
