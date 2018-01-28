@@ -10,12 +10,23 @@ import registerServiceWorker from './registerServiceWorker';
 
 import '../node_modules/semantic-ui-css/semantic.min.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let hasRendered = false;
+const renderApp = () => {
+    if (!hasRendered) {
+        ReactDOM.render(<App />, document.getElementById('root'));
+        hasRendered = true;
+    }
+};
+ReactDOM.render(<p>Loading ...</p>, document.getElementById('root'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        history.push('/DashBoard');
+        renderApp();
+        if (history.location.pathname === '/') {
+            history.push('/DashBoard');
+        }
     } else {
+        renderApp();
         history.push('/');
     }
 });

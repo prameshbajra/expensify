@@ -8,6 +8,7 @@ import CreateExpense from './CreateExpense';
 import EditExpense from './EditExpense';
 import Help from './Help';
 import About from './About';
+import PrivateRoute from './PrivateRoute';
 import MenuItems from './MenuItems';
 import NoMatch from './NoMatch';
 
@@ -49,17 +50,24 @@ const Body = props => (
             </Sidebar>
             <Sidebar.Pusher>
                 <Segment basic>
-                    <div
-                        id="body"
-                        role="presentation"
-                        onClick={() => { props.sideBarHandler(); }}
-                        onKeyPress={() => { props.sideBarHandler(); }}
-                    >
+                    <div id="body">
                         <Switch>
                             <Route exact path="/" component={LoginPage} />
-                            <Route exact path="/DashBoard" component={DashBoard} />
-                            <Route path="/createExpense" component={CreateExpense} />
-                            <Route path="/editExpense/:id" component={EditExpense} />
+                            <PrivateRoute
+                                path="/DashBoard"
+                                component={DashBoard}
+                                currentUser={firebase.auth().currentUser}
+                            />
+                            <PrivateRoute
+                                path="/createExpense"
+                                component={CreateExpense}
+                                currentUser={firebase.auth().currentUser}
+                            />
+                            <PrivateRoute
+                                path="/editExpense/:id"
+                                component={EditExpense}
+                                currentUser={firebase.auth().currentUser}
+                            />
                             <Route path="/help" component={Help} />
                             <Route path="/about" component={About} />
                             <Route component={NoMatch} />
@@ -68,7 +76,7 @@ const Body = props => (
                 </Segment>
             </Sidebar.Pusher>
         </Sidebar.Pushable>
-    </div>
+    </div >
 );
 
 export default Body;

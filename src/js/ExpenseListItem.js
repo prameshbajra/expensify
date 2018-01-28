@@ -5,9 +5,9 @@ import { Card } from 'semantic-ui-react';
 
 const ExpenseListItem = ({ expenses }) => (
     <div className="col-md-10 col-md-offset-1">
-        <Card.Group>
+        <Card.Group itemsPerRow={2}>
             {expenses.map(expense => (
-                <Card key={expense[0]}>
+                <Card fluid color="blue" key={expense[0]}>
                     <Card.Content>
                         <Card.Header> <NavLink to={`/editExpense/${expense[0]}`}> {expense[1]}</NavLink></Card.Header>
                         <Card.Meta>Rs. <b>{expense[4]}</b></Card.Meta>
