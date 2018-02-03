@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header } from 'semantic-ui-react';
 
-import { database } from '../firebase/firebase';
+import firebase, { database } from '../firebase/firebase';
 import ExpenseListItem from './ExpenseListItem';
 import getVisibleExpenses from '../apis/getVisibleExpenses';
 
@@ -14,7 +14,8 @@ export class ExpenseList extends Component {
         };
     }
     componentWillMount() {
-        database.ref('expenses')
+        const currentUserUid = firebase.auth().currentUser.uid;
+        database.ref(`users/${currentUserUid}/expenses`)
             .on('value', (snapshot) => {
                 const dataReceived = snapshot.val();
                 if (dataReceived) {
@@ -33,7 +34,8 @@ export class ExpenseList extends Component {
             });
     }
     componentWillUnmount() {
-        database.ref('expenses').off();
+        const currentUserUid = firebase.auth().currentUser.uid;
+        database.ref(`users/${currentUserUid}/expenses`).off();
     }
     render() {
         return (

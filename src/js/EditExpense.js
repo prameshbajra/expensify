@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 
-import { database } from '../firebase/firebase';
+import firebase, { database } from '../firebase/firebase';
 import { removeExpense, editExpense } from '../actions/expenses';
 import ExpenseForm from './ExpenseForm';
 
 export class EditExpense extends Component {
     onSubmit = (expense) => {
         // Updating the data ...
-        database.ref('expenses')
+        const currentUserUid = firebase.auth().currentUser.uid;
+        database.ref(`users/${currentUserUid}/expenses`)
             .child(expense.id)
             .update({
                 description: expense.description,
@@ -23,7 +24,8 @@ export class EditExpense extends Component {
     }
     onClick = () => {
         // Removing the item from firebase ...
-        database.ref('expenses')
+        const currentUserUid = firebase.auth().currentUser.uid;
+        database.ref(`users/${currentUserUid}/expenses`)
             .child(this.props.match.params.id)
             .remove(() => {
                 this.props.history.push('/');

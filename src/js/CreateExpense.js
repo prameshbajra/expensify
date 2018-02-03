@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header } from 'semantic-ui-react';
 
-import { database } from '../firebase/firebase';
+import firebase, { database } from '../firebase/firebase';
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
 
 export class CreateExpense extends Component {
     onSubmit = (expense) => {
-        database.ref('expenses')
+        const currentUserUid = firebase.auth().currentUser.uid;
+        database.ref(`users/${currentUserUid}/expenses`)
             .push(expense)
             .then(() => {
                 this.props.addExpense(expense);

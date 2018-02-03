@@ -4,7 +4,7 @@ import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 import { Input, Button, Header } from 'semantic-ui-react';
 
-import { database } from '../firebase/firebase';
+import firebase, { database } from '../firebase/firebase';
 
 export default class ExpenseForm extends Component {
     constructor(props) {
@@ -21,7 +21,8 @@ export default class ExpenseForm extends Component {
     componentWillMount() {
         // To show precious saved values in form ...
         if (this.props.id) {
-            database.ref('expenses')
+            const currentUserUid = firebase.auth().currentUser.uid;
+            database.ref(`users/${currentUserUid}/expenses`)
                 .child(this.props.id)
                 .once('value')
                 .then((snapshot) => {

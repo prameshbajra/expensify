@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { database } from '../firebase/firebase';
+import firebase, { database } from '../firebase/firebase';
 import getVisibleExpenses from '../apis/getVisibleExpenses';
 import expensesTotal from '../apis/expensesTotal';
 
@@ -14,7 +14,8 @@ export class ExpensesSummary extends Component {
         };
     }
     componentWillMount() {
-        database.ref('expenses')
+        const currentUserUid = firebase.auth().currentUser.uid;
+        database.ref(`users/${currentUserUid}/expenses`)
             .once('value')
             .then((snapshot) => {
                 const dataReceived = snapshot.val();
