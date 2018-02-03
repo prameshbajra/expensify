@@ -26,7 +26,7 @@ const buttonSignOut = () => {
                 circular
                 onClick={logOutHandler}
             >
-                Sign Out
+                Log Out
             </Button>);
     }
     return null;
