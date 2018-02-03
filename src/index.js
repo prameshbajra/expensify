@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './css/index.css';
 import firebase from './firebase/firebase';
 import App, { history } from './js/App';
+import PreLoader from './js/PreLoader';
 import registerServiceWorker from './registerServiceWorker';
 
 import '../node_modules/semantic-ui-css/semantic.min.css';
@@ -17,7 +18,7 @@ const renderApp = () => {
         hasRendered = true;
     }
 };
-ReactDOM.render(<p>Loading ...</p>, document.getElementById('root'));
+ReactDOM.render(<PreLoader />, document.getElementById('root'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
